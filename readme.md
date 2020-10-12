@@ -2,7 +2,7 @@
 
 ### Fix access to Lavarel log
 ```
-docker-compose exec learning-locer bash 
+docker-compose exec learning-locker bash 
 chmod 777 /var/www/html/app/storage/logs/laravel-2020-10-09.log
 ```
 
