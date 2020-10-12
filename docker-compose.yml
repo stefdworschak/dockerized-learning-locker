@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  learning-locker:
+    image: sproutlabs/learninglocker:latest
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+      - "28017:28017"
+  nginx:
+    image: nginx
+    volumes:
+      - ${PWD}/nginx/:/etc/nginx/conf.d/
+    ports:
+      - "80:80"
+    depends_on:
+      - learning-locker
+      - mongo
